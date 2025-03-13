@@ -1,32 +1,17 @@
-package org.example.blood_donation_management_system.entitiy;
+package org.example.blood_donation_management_system.dto;
 
-import jakarta.persistence.*;
-import java.io.Serializable;
-import java.util.UUID;
+public class UserDTO {
 
-@Entity
-@Table(name = "systemuser")
-public class User implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID uid;
-
-    @Column(unique = true)
     private String email;
-
     private String password;
-
     private String name;
-
     private String role;
 
     // Default constructor
-    public User() {}
+    public UserDTO() {}
 
     // Parameterized constructor
-    public User(UUID uid, String email, String password, String name, String role) {
-        this.uid = uid;
+    public UserDTO(String email, String password, String name, String role) {
         this.email = email;
         this.password = password;
         this.name = name;
@@ -34,14 +19,6 @@ public class User implements Serializable {
     }
 
     // Getters and Setters
-    public UUID getUid() {
-        return uid;
-    }
-
-    public void setUid(UUID uid) {
-        this.uid = uid;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -77,9 +54,8 @@ public class User implements Serializable {
     // Override toString() for better representation
     @Override
     public String toString() {
-        return "User{" +
-                "uid=" + uid +
-                ", email='" + email + '\'' +
+        return "UserDTO{" +
+                "email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", role='" + role + '\'' +
